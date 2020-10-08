@@ -1,8 +1,4 @@
-# docker build --tag 2nodesimplepay .
-# docker run -it --entrypoint=/bin/bash --name 2nodesshd 2nodesimplepay
-# docker run --publish 8000:8080 --detach --name 2node 2nodesimplepay
-
-FROM ubuntu:16.04
+FROM ubuntu:20.04
 
 # 0 Install Curl
 RUN apt update && \

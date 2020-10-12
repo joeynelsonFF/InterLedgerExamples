@@ -253,7 +253,7 @@ docker run --rm --network local-ilp interledgerrs/ilp-cli --node http://charlie-
   --asset-scale 6 \
   --ilp-over-http-incoming-token charlie_password
 
-sleep 6 # This sleep is crucial
+sleep 10 # This sleep is crucial and needs to be extra long for some reason
 
 #================================
 # IV. Send a payment

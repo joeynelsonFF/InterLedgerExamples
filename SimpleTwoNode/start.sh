@@ -7,14 +7,16 @@
 mkdir -p logs
 
 # RUN redis-server --port 6379
+# for port in `seq 6379 6380`; do
+#     redis-cli -p $port flushall
+# done
+
 redis-server --port 6379 &> logs/redis-a-node.log &
 redis-server --port 6380 &> logs/redis-b-node.log &
   # CMD tail -f logs/redis-a-node.log
 
 #   # Remove all data from Redis # Doing this causes connection errors...
-# for port in `seq 6379 6380`; do
-#     redis-cli -p $port flushall
-# done
+
 
 ###########################
 # 3. Launch The 2 Nodes
@@ -55,9 +57,11 @@ export ILP_CLI_API_AUTH=admin-a
 # Create accounts
 printf "Creating Alice's account on Node A...\n"
 ./ilp-cli accounts create alice \
+  --auth alice-password \
   --asset-code ABC \
   --asset-scale 9 \
   --ilp-over-http-incoming-token alice-password \
+
   &>logs/account-node_a-alice.log
 
 printf "Creating Node B's account on Node A...\n"
@@ -81,7 +85,7 @@ printf "Creating Bob's account on Node B...\n"
   &>logs/account-node_b-bob.log
 
 printf "Creating Node A's account on Node B...\n"
-ilp-cli --node http://localhost:8770 accounts create node_a \
+./ilp-cli --node http://localhost:8770 accounts create node_a \
     --auth admin-b \
     --asset-code ABC \
     --asset-scale 9 \

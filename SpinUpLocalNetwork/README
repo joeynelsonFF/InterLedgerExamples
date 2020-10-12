@@ -1,0 +1,20 @@
+tutorial: https://interledger.org/spin-up-local-network.html
+   previous link that lead me here: https://forum.interledger.org/t/github-interledger-rs-eth-xrp-example-failed/966/2
+
+
+
+for port in `seq 6379 6385`; do
+    if lsof -Pi :${port} -sTCP:LISTEN -t >/dev/null ; then
+        redis-cli -p ${port} shutdown
+    fi
+done
+
+if [ -f dump.rdb ] ; then
+    rm -f dump.rdb
+fi
+
+for port in 7770 8770 9770 3000 3001 3002 3003; do
+    if lsof -tPi :${port} >/dev/null ; then
+        kill `lsof -tPi :${port}`
+    fi
+done

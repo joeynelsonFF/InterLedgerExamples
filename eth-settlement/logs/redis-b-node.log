@@ -1,0 +1,9 @@
+72707:C 08 Oct 2020 15:35:14.714 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+72707:C 08 Oct 2020 15:35:14.714 # Redis version=5.0.3, bits=64, commit=00000000, modified=0, pid=72707, just started
+72707:C 08 Oct 2020 15:35:14.714 # Configuration loaded
+72707:M 08 Oct 2020 15:35:14.716 * Increased maximum number of open files to 10032 (it was originally set to 256).
+72707:M 08 Oct 2020 15:35:14.717 * Running mode=standalone, port=6381.
+72707:M 08 Oct 2020 15:35:14.717 # Server initialized
+72707:M 08 Oct 2020 15:35:14.717 * Ready to accept connections
+72707:M 08 Oct 2020 15:36:12.645 # User requested shutdown...
+72707:M 08 Oct 2020 15:36:12.646 # Redis is now ready to exit, bye bye...
